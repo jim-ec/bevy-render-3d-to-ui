@@ -18,9 +18,6 @@ fn main() {
         .run()
 }
 
-#[derive(Resource)]
-struct RenderTargetImage(Handle<Image>);
-
 #[derive(Component)]
 struct MyCube;
 
@@ -108,8 +105,6 @@ fn init(
                 ..default()
             });
         });
-
-    commands.insert_resource(RenderTargetImage(image));
 }
 
 fn update_image_size(query: Query<(&Node, &UiImage)>, mut images: ResMut<Assets<Image>>) {
